@@ -6,7 +6,7 @@ import { Header } from './components/Header'
 import Accounts from './components/Accounts'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>

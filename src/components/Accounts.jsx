@@ -53,6 +53,7 @@ const Accounts = () => {
 
   const chartOptions = {
     responsive: true,
+    aspectRatio: 1,
     plugins: {
       legend: {
         position: 'top',

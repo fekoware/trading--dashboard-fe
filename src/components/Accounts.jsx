@@ -17,6 +17,16 @@ const Accounts = () => {
   const [accounts, setAccounts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [aspectRatio, setAspectRatio] = useState(2);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setAspectRatio(window.innerWidth < 768 ? 1: 2);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
@@ -53,7 +63,7 @@ const Accounts = () => {
 
   const chartOptions = {
     responsive: true,
-    aspectRatio: 1,
+    aspectRatio: aspectRatio,
     plugins: {
       legend: {
         position: 'top',
